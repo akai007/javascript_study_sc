@@ -19,13 +19,13 @@ console.log(plus3(1, 2))
 
 /** part4 */
 function plus3({a, b}) {
-  console.log(arguments[0]);
+  console.log(arguments[0])
   return a + b
 }
 console.log(plus3({a: 1, b: 2}))
 
 /** notice1 */
 function notice() {
-  console.log(arguments);
+  console.log(arguments)
 }
 notice()
