@@ -19,7 +19,7 @@ console.log( a()() )
 console.log( a()()() )
 
 
-const intro = function(str) {
+const lazyIntro = function(str) {
     return function(firstName) {
         return function(lastName) {
             return `${str} ${firstName} ${lastName}`
@@ -27,6 +27,13 @@ const intro = function(str) {
     }
 }
 
-const startIntro = intro('Hi My Name is ')
+const startIntro = lazyIntro('Hi My Name is')
 // long time after
 console.log( startIntro('Liao')('Kai') )
+
+const lazyIntroSimple = (str) => (firstName) => (lastName) => {
+    return `${str} ${firstName} ${lastName}`
+}
+const startIntroSimple = lazyIntroSimple('Hi My Name is')
+// long time after
+console.log( startIntroSimple('Zhang')('Xumeng') )
