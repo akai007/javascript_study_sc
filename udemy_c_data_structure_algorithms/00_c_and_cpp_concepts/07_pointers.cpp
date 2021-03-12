@@ -49,6 +49,18 @@ int main()
     // dont forget to clear heap
     free(pHeap);
     delete [] pHeapPP;
+
+    cout<<"\n base type use memory:"<<endl;
+    int intV;
+    short shortV;
+    long longV;
+    float floatV;
+    double doubleV;
+    char charV;
+
+    cout<<sizeof(intV)<<"\t"<<sizeof(shortV)<<"\t"<<sizeof(longV)<<"\t"<<sizeof(floatV)<<"\t"<<sizeof(doubleV)<<"\t"<<sizeof(charV)<<"\t"<<endl;
+    cout<<sizeof(&intV)<<"\t"<<sizeof(&shortV)<<"\t"<<sizeof(&longV)<<"\t"<<sizeof(&floatV)<<"\t"<<sizeof(&doubleV)<<"\t"<<sizeof(&charV)<<"\t"<<endl;
+
     
     return 0;
 }
