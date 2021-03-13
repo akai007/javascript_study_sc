@@ -20,12 +20,15 @@ void swapX(int *x, int *y) {
   *y = t;
 }
 
-void swapS(int &x, int &y) { // will up into main function stack
+void swapS(int &x, int &y) { // (c++ noly) will up into main function stack
   int t;
 
   t = x;
   x = y;
   y = t;
+}
+void swapSE(int &x, int y) {
+  cout<<&x<<"\t"<<y<<endl;
 }
 
 int main(int argc, char const *argv[])
@@ -48,6 +51,7 @@ int main(int argc, char const *argv[])
   cout<<"before swapX:\t a:"<<a<<"\t b:"<<b<<endl;
   swapS(a, b);
   cout<<"after swapX:\t a:"<<a<<"\t b:"<<b<<endl;
+  swapSE(a, b);
 
   return 0;
 }
