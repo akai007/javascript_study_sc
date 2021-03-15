@@ -15,7 +15,7 @@ int funStatic(int n)
   if (n > 0)
   {
     x++;
-    return fun(n - 1) + x;
+    return funStatic(n - 1) + x;
   }
   return 0;
 }
