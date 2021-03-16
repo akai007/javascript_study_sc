@@ -3,4 +3,4 @@
 !*/
 !.gitignore
 .DS_Store
-**/*_c_*/*dSYM
+**/*_c_*/**/*dSYM
