@@ -49,6 +49,7 @@ int main(int argc, char const *argv[])
     
     cout<<"Add float:\t"<<arF.add()<<endl;
     cout<<"Sub float:\t"<<arF.sub()<<endl;
+    
 
     return 0;
 }
