@@ -57,9 +57,10 @@ int fibL(int n)
 
 int main(int argc, char const *argv[])
 {
-  printf("fibL \t\t %d \n", fibL(6));
-  printf("fibR \t\t %d \n", fibR(6));
-  printf("fibRX \t %d \n", fibRX(6));
+  int Num = 10;
+  printf("fibL \t\t %d \n", fibL(Num));
+  printf("fibR \t\t %d \n", fibR(Num));
+  printf("fibRX \t\t %d \n", fibRX(Num));
 
   return 0;
 }
