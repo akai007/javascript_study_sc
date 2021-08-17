@@ -1,6 +1,9 @@
 CREATE DATABASE mooc CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE mooc;
 
+CREATE USER 'mooc'@'%' IDENTIFIED BY 'mooc123';
+GRANT ALL PRIVILEGES ON mooc . * TO 'mooc'@'%';
+
 CREATE TABLE s
 (
 	sno CHAR(6) PRIMARY KEY,
@@ -16,7 +19,7 @@ CREATE TABLE c
 (
 	cno CHAR(6) PRIMARY KEY,
     cn VARCHAR(10) NOT NULL,
-    pc CHAR(6),
+    pc CHAR(6) DEFAULT NULL,
     
     FOREIGN KEY (pc) REFERENCES c(cno)
 );
@@ -24,7 +27,7 @@ CREATE TABLE c
 CREATE TABLE sc
 (
 	sno CHAR(6),
-    cno VARCHAR(10),
+    cno VARCHAR(6),
     grade INT,
     
     PRIMARY KEY (sno, cno),
