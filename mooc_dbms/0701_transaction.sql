@@ -13,6 +13,7 @@ INSERT INTO bank_account VALUES ('002', 0);
 
 SELECT * FROM bank_account;
 
+# excute line by line
 START TRANSACTION;
 	UPDATE bank_account
 	SET balance = balance - 1000
@@ -21,6 +22,6 @@ START TRANSACTION;
 	UPDATE bank_account
 	SET balance = balance + 1000
 	WHERE accNo = '002';
-COMMIT; # TODO 确认是否有效
+COMMIT;
 ROLLBACK;
 	SELECT * FROM bank_account;
