@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define LIST_INIT_SIZE 100;
+#define LIST_INIT_SIZE 10;
+#define LIST_INCREMENT 10;
 
-enum Status {OK = 1, FAIL = 0};
+enum Status {ERROR = 0, OK = 1};
 
 typedef int ElemType;
 
@@ -16,7 +17,7 @@ struct ArrayList {
 enum Status InitList(struct ArrayList *arrayList, ElemType arr[], int len)
 {
   int size = LIST_INIT_SIZE;
-  if (len > size)return FAIL;
+  if (len > size)return ERROR;
   
   ElemType * list = (ElemType *)malloc(sizeof(ElemType)*size);
   for (int i = 0; i < len; i++)
@@ -41,6 +42,32 @@ void DisplayList(struct ArrayList arrayList)
   
 }
 
+enum Status ListInsert(struct ArrayList *arrayList, int index, ElemType e)
+{
+  // check index range
+  if ( index < 0 || index >= arrayList->size ) return ERROR;
+
+  // expand array
+  if (arrayList->length >= arrayList->size)
+  {
+    int listIncrement = LIST_INCREMENT;
+    ElemType * expandList = (ElemType *)realloc(arrayList->list, (arrayList->size + listIncrement) * sizeof(ElemType));
+
+    arrayList->list = expandList;
+    arrayList->size += listIncrement;
+  }
+  
+  for (int i = arrayList->length; i >= index; i--)
+  {
+    arrayList->list[i+1] = arrayList->list[i];
+  }
+
+  arrayList->list[index] = e;
+  arrayList->length++;
+  
+  return OK;
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -48,7 +75,17 @@ int main(int argc, char const *argv[])
 
   struct ArrayList arrayList;
   InitList(&arrayList, arr, sizeof(arr)/sizeof(arr[0]));
+  DisplayList(arrayList);
 
+  ListInsert(&arrayList, 0, 0);
+  DisplayList(arrayList);
+  ListInsert(&arrayList, 2, 2);
+  DisplayList(arrayList);
+  ListInsert(&arrayList, 4, 4);
+  DisplayList(arrayList);
+  ListInsert(&arrayList, 6, 6);
+  DisplayList(arrayList);
+  ListInsert(&arrayList, 8, 8);
   DisplayList(arrayList);
 
   return 0;
