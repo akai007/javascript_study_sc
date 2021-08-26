@@ -14,7 +14,7 @@ struct ArrayList {
   int size;
 };
 
-enum Status InitList(struct ArrayList *arrayList, ElemType arr[], int len)
+enum Status InitList(struct ArrayList *L, ElemType arr[], int len)
 {
   int size = LIST_INIT_SIZE;
   if (len > size)return ERROR;
@@ -25,45 +25,73 @@ enum Status InitList(struct ArrayList *arrayList, ElemType arr[], int len)
     list[i] = arr[i];
   }
 
-  arrayList->list = list;
-  arrayList->size = size;
-  arrayList->length = len;
+  L->list = list;
+  L->size = size;
+  L->length = len;
 
   return OK;
 }
 
-void DisplayList(struct ArrayList arrayList)
+void DisplayList(struct ArrayList L)
 {
-  for (int i = 0; i < arrayList.length; i++)
+  for (int i = 0; i < L.length; i++)
   {
-    printf("%d ", arrayList.list[i]);
+    printf("%d ", L.list[i]);
   }
   printf("\n");
   
 }
 
-enum Status ListInsert(struct ArrayList *arrayList, int index, ElemType e)
+enum Status ListInsert(struct ArrayList *L, int index, ElemType e)
 {
   // check index range
-  if ( index < 0 || index >= arrayList->size ) return ERROR;
+  if ( index < 0 || index >= L->size ) return ERROR;
 
-  // expand array
-  if (arrayList->length >= arrayList->size)
+  // expand array when full
+  if (L->length >= L->size)
   {
     int listIncrement = LIST_INCREMENT;
-    ElemType * expandList = (ElemType *)realloc(arrayList->list, (arrayList->size + listIncrement) * sizeof(ElemType));
+    ElemType * expandList = (ElemType *)realloc(L->list, (L->size + listIncrement) * sizeof(ElemType));
 
-    arrayList->list = expandList;
-    arrayList->size += listIncrement;
+    L->list = expandList;
+    L->size += listIncrement;
   }
   
-  for (int i = arrayList->length; i >= index; i--)
+  for (int i = L->length; i >= index; i--)
   {
-    arrayList->list[i+1] = arrayList->list[i];
+    L->list[i+1] = L->list[i];
   }
 
-  arrayList->list[index] = e;
-  arrayList->length++;
+  L->list[index] = e;
+  L->length++;
+  
+  return OK;
+}
+
+enum Status ListConcat(struct ArrayList *L, struct ArrayList *appadingList)
+{
+  return OK;
+}
+
+enum Status ListSortedInsert(struct ArrayList *L, ElemType e)
+{
+  // find sorted index
+  int index = 0;
+  while(index < L->length)
+  {
+    if (e <= L->list[index]) break;
+
+    index++;
+  }
+  
+  return ListInsert(L, index, e);
+}
+
+enum Status ListSortedConcat(struct ArrayList *L, struct ArrayList *appadingList)
+{
+  int sortedListLength = L->length + appadingList->length;
+  ElemType * sortedList = (ElemType *)malloc(sizeof(ElemType) * (sortedListLength));
+
   
   return OK;
 }
@@ -73,20 +101,26 @@ int main(int argc, char const *argv[])
 {
   ElemType arr[] = {2, 3, 5, 7, 11, 13};
 
-  struct ArrayList arrayList;
-  InitList(&arrayList, arr, sizeof(arr)/sizeof(arr[0]));
-  DisplayList(arrayList);
+  struct ArrayList L;
+  InitList(&L, arr, sizeof(arr)/sizeof(arr[0]));
+  DisplayList(L);
 
-  ListInsert(&arrayList, 0, 0);
-  DisplayList(arrayList);
-  ListInsert(&arrayList, 2, 2);
-  DisplayList(arrayList);
-  ListInsert(&arrayList, 4, 4);
-  DisplayList(arrayList);
-  ListInsert(&arrayList, 6, 6);
-  DisplayList(arrayList);
-  ListInsert(&arrayList, 8, 8);
-  DisplayList(arrayList);
+  // ListInsert(&L, 0, 0);
+  // DisplayList(L);
+  // ListInsert(&L, 2, 2);
+  // DisplayList(L);
+  // ListInsert(&L, 4, 4);
+  // DisplayList(L);
+  // ListInsert(&L, 6, 6);
+  // DisplayList(L);
+  // ListInsert(&L, 8, 8);
+  // DisplayList(L);
+
+  ListSortedInsert(&L, 8);
+  ListSortedInsert(&L, 6);
+  ListSortedInsert(&L, 4);
+  ListSortedInsert(&L, 0);
+  DisplayList(L);
 
   return 0;
 }
