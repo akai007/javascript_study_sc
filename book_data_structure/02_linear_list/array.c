@@ -91,7 +91,8 @@ enum Status ListSortedConcat(struct ArrayList *L, struct ArrayList *appadingList
 {
   int sortedListLength = L->length + appadingList->length;
   ElemType * sortedList = (ElemType *)malloc(sizeof(ElemType) * (sortedListLength));
-
+  
+  // TODO
   
   return OK;
 }
