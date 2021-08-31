@@ -57,7 +57,7 @@ void ListDisplay(struct LinkedList * L)
   printf("\n");
 }
 
-int main(int argc, char const *argv[])
+void test()
 {
   struct LinkedList L;
   ListInit(&L);
@@ -66,6 +66,10 @@ int main(int argc, char const *argv[])
   ListInsert(&L, 0, 5);
   ListInsert(&L, 4, 7);
   ListDisplay(&L);
-  
-  return 0;
 }
+
+// int main(int argc, char const *argv[])
+// {
+//   test();
+//   return 0;
+// }

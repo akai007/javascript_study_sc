@@ -97,7 +97,7 @@ enum Status ListSortedConcat(struct ArrayList *L, struct ArrayList *appadingList
 }
 
 
-int main(int argc, char const *argv[])
+int test()
 {
   ElemType arr[] = {2, 3, 5, 7, 11, 13};
 
@@ -124,3 +124,9 @@ int main(int argc, char const *argv[])
 
   return 0;
 }
+
+// int main(int argc, char const *argv[])
+// {
+//   test();
+//   return 0;
+// }
