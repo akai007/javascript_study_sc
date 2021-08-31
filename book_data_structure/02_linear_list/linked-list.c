@@ -94,18 +94,11 @@ void test()
   ListInsert(&L, 2, 5);
   ListInsert(&L, 3, 7);
   ListDisplay(&L);
-<<<<<<< Updated upstream
-=======
 
   struct LinkedList Lb;
   ListInsert(&Lb, 0, 4);
   ListSortedConcat(&L, &Lb);
   ListDisplay(&L);
-
-  
-  
-  return 0;
->>>>>>> Stashed changes
 }
 
 // int main(int argc, char const *argv[])
