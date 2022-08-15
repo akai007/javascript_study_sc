@@ -26,8 +26,10 @@ void displayList(int arr[], int n) {
 int main(int argc, char const *argv[])
 {
     int arr[] = { 5, 2, 7, 3, 2 };
-    insertionSort(&arr, sizeof(arr)/sizeof(arr[0]));
-    displayList(&arr, sizeof(arr)/sizeof(arr[0]));
+    displayList(arr, sizeof(arr)/sizeof(arr[0]));
+
+    insertionSort(arr, sizeof(arr)/sizeof(arr[0]));
+    displayList(arr, sizeof(arr)/sizeof(arr[0]));
 
     return 0;
 }
