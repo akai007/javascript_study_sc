@@ -5,3 +5,5 @@
 .DS_Store
 **/*_c_*/**/*dSYM
 **/*_cpp*/**/*dSYM
+**/*.log
+mooc_network/**/*.conf
