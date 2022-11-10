@@ -9,6 +9,7 @@ public class InputAndOutput {
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
         System.out.printf("%d 的平方等于 %d", a, a*a);
+        System.out.println();
     }
 
     public static void inout() {
@@ -16,9 +17,10 @@ public class InputAndOutput {
         System.out.print("Please input a char: ");
         try {
             c = (char) System.in.read();
-        }catch (IOException e){}
+        } catch (IOException e){}
 
         System.out.println("You have entered: " + c);
+        System.out.println();
     }
 
     public static void bufferInOut() {
@@ -29,10 +31,11 @@ public class InputAndOutput {
                     new InputStreamReader(System.in)
             ));
             s = in.readLine();
-        }catch (IOException e) {}
+        } catch (IOException e) {}
 
         System.out.println("You input a line:");
         System.out.println("" + s);
+        System.out.println();
     }
 
 
