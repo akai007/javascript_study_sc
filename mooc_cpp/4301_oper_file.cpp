@@ -1,5 +1,4 @@
 #include <fstream> // 使用文件流
-#include <iomanip>
 
 using namespace std; // 文件流定义在std命名空间
 
