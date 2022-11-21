@@ -3,8 +3,8 @@
 let map = new Map()
 
 // 新增
-map.add('a', 'aa')
-map.add('b', 'bb')
+map.set('a', 'aa')
+map.set('b', 'bb')
 
 // 删除
 map.delete('a')
