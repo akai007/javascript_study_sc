@@ -23,14 +23,19 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-  let max = 0
   let map = new Map()
-  for (let i=0; i<s.length+1; i++) {
-    for (let j=1; j<s.length+1; j++) {
-      let subStr = s.substring(i,j)
-      if (subStr) map.set(subStr,true)
-    }
+  let len = s.length
+  let k, v, l=0, max=0
+
+  for (let r = 0; r < len; r++) {
+    k = s[r]
+    v = map.get(k)
+    if (v>l) l=v
+    max = Math.max(r-l+1, max)
+    map.set(k, r+1)
   }
+
   return max
 };
-console.log(lengthOfLongestSubstring('abcabc') )
+
+console.log(lengthOfLongestSubstring('abcabcbb') )
