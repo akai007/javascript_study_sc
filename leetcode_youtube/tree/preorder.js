@@ -19,3 +19,17 @@ console.log()
     if(n.left) stack.push(n.left)
   }
 })(bTree)
+
+console.log()
+
+!(function preorderLevel(root) {
+  let deepLen = 0
+  const preorder = (root, l) => {
+    if (!root) return
+    if (!root.left && !root.right) deepLen = Math.max(deepLen, l)
+    preorder(root.left, l+1)
+    preorder(root.right, l+1)
+  }
+  preorder(root, 1)
+  console.log('the tree level is:', deepLen)
+})(bTree)

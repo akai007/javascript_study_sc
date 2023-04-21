@@ -16,6 +16,7 @@ console.log()
   while (stack.length || p) {
     while (p) {
       stack.push(p)
+      console.log('stack.length', stack.length);
       p = p.left
     }
     const n = stack.pop()

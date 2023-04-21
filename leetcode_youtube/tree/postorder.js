@@ -21,6 +21,6 @@ console.log()
     if(n.right) stack.push(n.right)
   }
   while(outStack.length) {
-    console.log(outStack.pop().val);
+    console.log(outStack.pop().val)
   }
 })(bTree)

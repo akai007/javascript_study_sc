@@ -4,3 +4,8 @@ const tree = require('./_tree')
   console.log(root.val)
   root.children.forEach(dfs)
 })(tree)
+
+!(function dfs (root) {
+  console.log(root.val)
+  root.children.forEach(dfs)
+})(tree)
