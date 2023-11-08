@@ -19,7 +19,7 @@ public class JComboBoxDemo {
     p1.add(jcb);
     jcb.addItem("Six Six Six");
     jcb.removeItem("One");
-
+    
     jcb.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jcb) {
