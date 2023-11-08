@@ -83,5 +83,9 @@
   "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp.errorSquiggles": "Disabled"
+  "C_Cpp.errorSquiggles": "Disabled",
+  "java.project.sourcePaths": [
+    "self-culture/java/02_data",
+    "self-culture/java/05_array"
+  ]
 }
