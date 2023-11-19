@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <!-- Background circle representing warmth -->
+  <circle cx="50" cy="50" r="50" fill="#f27373" />
+
+  <!-- Stylized line chart with upward trend -->
+  <path d="M20,80 L40,60 L60,80 L80,40" fill="none" stroke="#ffcc66" stroke-width="4" />
+
+  <!-- Chinese character 暖 integrated into the chart -->
+  <text x="50" y="60" font-size="18" font-family="Arial" fill="#ffffff" text-anchor="middle">暖</text>
+</svg>

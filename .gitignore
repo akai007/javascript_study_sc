@@ -6,4 +6,5 @@
 **/*_c_*/**/*dSYM
 **/*_cpp*/**/*dSYM
 **/*.log
+**/node_modules
 mooc_network/**/*.conf
